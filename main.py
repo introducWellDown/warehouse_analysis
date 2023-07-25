@@ -29,7 +29,7 @@ df_products = json_normalize(data, 'products', ['order_id', 'warehouse_name', 'h
 # Вычисляем доход, расход и прибыль для каждого товара
 df_products['income'] = df_products['price'] * df_products['quantity']
 df_products['expenses'] = df_products['highway_cost'] * df_products['quantity']
-df_products['profit'] = df_products['income'] - df_products['expenses']
+df_products['profit'] = df_products['income'] - - df_products['expenses']
 
 # Группируем данные по продуктам и вычисляем суммарные значения
 result_df = df_products.groupby(['order_id', 'product', 'warehouse_name'])[['quantity', 'income', 'expenses', 'profit']].sum().reset_index()
